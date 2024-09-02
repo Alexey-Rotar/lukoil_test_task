@@ -94,6 +94,7 @@ public class PracticeFormTest {
         $("#submit").click();
 
         $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        $("#userNumber").shouldBe(empty);
     }
 
     @Test
@@ -140,4 +141,95 @@ public class PracticeFormTest {
 
         $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
     }
+
+    @Test
+    void emailNegativeTest1() {
+        $("#userEmail").setValue("email.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest2() {
+        $("#userEmail").setValue("email@mail");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest3() {
+        $("#userEmail").setValue("email@mail.c");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest4() {
+        $("#userEmail").setValue("email@.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest5() {
+        $("#userEmail").setValue("@mail.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest6() {
+        $("#userEmail").setValue("#email@mail.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest7() {
+        $("#userEmail").setValue("email@#mail.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest8() {
+        $("#userEmail").setValue("email@mail.#com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest9() {
+        $("#userEmail").setValue(" @ .com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
+    @Test
+    void emailNegativeTest10() {
+        $("#userEmail").setValue("@.com");
+
+        $("#submit").click();
+
+        $("#userEmail").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+    }
+
 }

@@ -18,15 +18,12 @@ public class PracticeFormTest {
         Configuration.browser = "safari";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1400x800";
-//        Configuration.holdBrowserOpen = true;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
     }
 
     @BeforeEach
     void beforeEach() {
         open("/automation-practice-form");
-//        executeJavaScript("$('footer').remove()");
-//        executeJavaScript("$('#fixedban').remove()");
     }
 
     @Test
